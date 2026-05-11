@@ -17,7 +17,7 @@ let product = {
   stock: 5,
 };
 
-let buyInProgress = false;
+// let buyInProgress = false;
 
 app.get("/product", (req, res) => {
   return res.json(product);
@@ -33,12 +33,12 @@ app.post("/buy", (req, res) => {
     });
   }
 
-  if (buyInProgress) {
-    return res.status(409).json({
-      success: false,
-      message: "Too many requests",
-    });
-  }
+  // if (buyInProgress) {
+  //   return res.status(409).json({
+  //     success: false,
+  //     message: "Too many requests",
+  //   });
+  // }
 
   if (product.stock < quantity) {
     return res.status(400).json({
@@ -47,7 +47,7 @@ app.post("/buy", (req, res) => {
     });
   }
 
-  buyInProgress = true;
+  // buyInProgress = true;
 
   console.log("before: stock = ", product.stock);
 
@@ -56,7 +56,7 @@ app.post("/buy", (req, res) => {
 
     console.log("after: stock = ", product.stock);
 
-    buyInProgress = false;
+    // buyInProgress = false;
 
     return res.status(200).json({
       success: true,

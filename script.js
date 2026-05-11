@@ -7,7 +7,7 @@ for (let i = 0; i < 10; i++) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: 20 }),
+      body: JSON.stringify({ quantity: 1 }),
     })
   );
 }
